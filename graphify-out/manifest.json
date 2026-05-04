@@ -1,0 +1,42 @@
+{
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\config.py": {
+    "mtime": 1777888832.2287288,
+    "hash": "eb7a1efd65d2584bf6b8d827edacc185"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\module_1_chains\\basic_chain.py": {
+    "mtime": 1777888858.537587,
+    "hash": "2af36362c018e4c091e42ef661516d9d"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\module_2_structured_output\\structured_output.py": {
+    "mtime": 1777888863.723217,
+    "hash": "65f24a98b35394095a0ff8ed5de95650"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\module_3_memory\\chat_with_memory.py": {
+    "mtime": 1777888869.167585,
+    "hash": "caea8cba7d4aff4d4a6d8b6b0d940965"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\module_4_agents\\research_agent.py": {
+    "mtime": 1777888874.664185,
+    "hash": "754dc510eaa4f41fc80bb6897d66bedb"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\module_5_rag\\ingest.py": {
+    "mtime": 1777885949.6847048,
+    "hash": "247779ee4020ea74996e517cd69d131c"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\module_5_rag\\query.py": {
+    "mtime": 1777889210.2126467,
+    "hash": "1af7d8a25d79084dc1dd2e536c32f78b"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\README.md": {
+    "mtime": 1777884489.2291522,
+    "hash": "4006b925bf96afa250a300c72398bbcf"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\requirements.txt": {
+    "mtime": 1777883947.4883604,
+    "hash": "eb2485033449c77402a8f7454b6bd078"
+  },
+  "C:\\Users\\ahmad\\OneDrive\\Documents\\practice\\module_5_rag\\sample_docs\\ai_ml_overview.txt": {
+    "mtime": 1777884399.5566335,
+    "hash": "1028449de691bae521440fd3f3203c66"
+  }
+}

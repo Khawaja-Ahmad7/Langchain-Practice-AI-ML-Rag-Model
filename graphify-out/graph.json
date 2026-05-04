@@ -1,0 +1,1287 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "langchain_learning_modules",
+        "label": "LangChain Progressive Learning Modules",
+        "nodes": [
+          "basic_chain_lcel_chain",
+          "structured_output_pydantic_parser",
+          "chat_with_memory_conversational_memory",
+          "research_agent_react_pattern",
+          "ingest_rag_pipeline",
+          "query_rag_chain"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 0.95,
+        "source_file": "README.md"
+      },
+      {
+        "id": "openrouter_shared_config",
+        "label": "Shared OpenRouter Configuration",
+        "nodes": [
+          "basic_chain_openrouter_gateway",
+          "structured_output_pydantic_parser",
+          "chat_with_memory_conversational_memory",
+          "research_agent_react_pattern",
+          "query_rag_chain"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "module_1_chains/basic_chain.py"
+      },
+      {
+        "id": "rag_document_pipeline",
+        "label": "RAG Document Processing Pipeline",
+        "nodes": [
+          "ingest_rag_pipeline",
+          "ingest_text_splitter",
+          "ingest_huggingface_embeddings",
+          "ingest_faiss_vector_store",
+          "query_rag_chain",
+          "query_retrieval_grounding"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "module_5_rag/ingest.py"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "basic_chain.py",
+      "file_type": "code",
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": "L1",
+      "id": "module_1_chains_basic_chain_py",
+      "community": 7,
+      "norm_label": "basic_chain.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": "L90",
+      "id": "module_1_chains_basic_chain_main",
+      "community": 7,
+      "norm_label": "main()"
+    },
+    {
+      "label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  MODULE 1: Ch",
+      "file_type": "rationale",
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": "L1",
+      "id": "module_1_chains_basic_chain_rationale_1",
+      "community": 7,
+      "norm_label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  module 1: ch"
+    },
+    {
+      "label": "structured_output.py",
+      "file_type": "code",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L1",
+      "id": "module_2_structured_output_structured_output_py",
+      "community": 2,
+      "norm_label": "structured_output.py"
+    },
+    {
+      "label": "ResearchSummary",
+      "file_type": "code",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L43",
+      "id": "module_2_structured_output_structured_output_researchsummary",
+      "community": 2,
+      "norm_label": "researchsummary"
+    },
+    {
+      "label": "BaseModel",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "basemodel",
+      "community": 2,
+      "norm_label": "basemodel"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L96",
+      "id": "module_2_structured_output_structured_output_main",
+      "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  MODULE 2: St",
+      "file_type": "rationale",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L1",
+      "id": "module_2_structured_output_structured_output_rationale_1",
+      "community": 2,
+      "norm_label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  module 2: st"
+    },
+    {
+      "label": "Structured output for a research topic analysis.",
+      "file_type": "rationale",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L44",
+      "id": "module_2_structured_output_structured_output_rationale_44",
+      "community": 2,
+      "norm_label": "structured output for a research topic analysis."
+    },
+    {
+      "label": "chat_with_memory.py",
+      "file_type": "code",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "L1",
+      "id": "module_3_memory_chat_with_memory_py",
+      "community": 6,
+      "norm_label": "chat_with_memory.py"
+    },
+    {
+      "label": "get_session_history()",
+      "file_type": "code",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "L50",
+      "id": "module_3_memory_chat_with_memory_get_session_history",
+      "community": 6,
+      "norm_label": "get_session_history()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "L65",
+      "id": "module_3_memory_chat_with_memory_main",
+      "community": 6,
+      "norm_label": "main()"
+    },
+    {
+      "label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  MODULE 3: Co",
+      "file_type": "rationale",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "L1",
+      "id": "module_3_memory_chat_with_memory_rationale_1",
+      "community": 6,
+      "norm_label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  module 3: co"
+    },
+    {
+      "label": "research_agent.py",
+      "file_type": "code",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L1",
+      "id": "module_4_agents_research_agent_py",
+      "community": 1,
+      "norm_label": "research_agent.py"
+    },
+    {
+      "label": "calculator()",
+      "file_type": "code",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L37",
+      "id": "module_4_agents_research_agent_calculator",
+      "community": 1,
+      "norm_label": "calculator()"
+    },
+    {
+      "label": "word_counter()",
+      "file_type": "code",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L54",
+      "id": "module_4_agents_research_agent_word_counter",
+      "community": 1,
+      "norm_label": "word_counter()"
+    },
+    {
+      "label": "web_search()",
+      "file_type": "code",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L62",
+      "id": "module_4_agents_research_agent_web_search",
+      "community": 1,
+      "norm_label": "web_search()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L93",
+      "id": "module_4_agents_research_agent_main",
+      "community": 1,
+      "norm_label": "main()"
+    },
+    {
+      "label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  MODULE 4: To",
+      "file_type": "rationale",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L1",
+      "id": "module_4_agents_research_agent_rationale_1",
+      "community": 1,
+      "norm_label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  module 4: to"
+    },
+    {
+      "label": "Calculate a mathematical expression.      Use this for math, arithmetic, or calc",
+      "file_type": "rationale",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L38",
+      "id": "module_4_agents_research_agent_rationale_38",
+      "community": 1,
+      "norm_label": "calculate a mathematical expression.      use this for math, arithmetic, or calc"
+    },
+    {
+      "label": "Count words, characters, and sentences in text.",
+      "file_type": "rationale",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L55",
+      "id": "module_4_agents_research_agent_rationale_55",
+      "community": 1,
+      "norm_label": "count words, characters, and sentences in text."
+    },
+    {
+      "label": "Search the web for current information using DuckDuckGo.     Use for real-time i",
+      "file_type": "rationale",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L63",
+      "id": "module_4_agents_research_agent_rationale_63",
+      "community": 1,
+      "norm_label": "search the web for current information using duckduckgo.     use for real-time i"
+    },
+    {
+      "label": "ingest.py",
+      "file_type": "code",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "L1",
+      "id": "module_5_rag_ingest_py",
+      "community": 8,
+      "norm_label": "ingest.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "L25",
+      "id": "module_5_rag_ingest_main",
+      "community": 8,
+      "norm_label": "main()"
+    },
+    {
+      "label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  MODULE 5a: R",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "L1",
+      "id": "module_5_rag_ingest_rationale_1",
+      "community": 8,
+      "norm_label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  module 5a: r"
+    },
+    {
+      "label": "query.py",
+      "file_type": "code",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L1",
+      "id": "module_5_rag_query_py",
+      "community": 4,
+      "norm_label": "query.py"
+    },
+    {
+      "label": "format_docs()",
+      "file_type": "code",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L27",
+      "id": "module_5_rag_query_format_docs",
+      "community": 4,
+      "norm_label": "format_docs()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L32",
+      "id": "module_5_rag_query_main",
+      "community": 4,
+      "norm_label": "main()"
+    },
+    {
+      "label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  MODULE 5b: R",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L1",
+      "id": "module_5_rag_query_rationale_1",
+      "community": 4,
+      "norm_label": "\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  module 5b: r"
+    },
+    {
+      "label": "Combine retrieved documents into a single context string.",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L28",
+      "id": "module_5_rag_query_rationale_28",
+      "community": 4,
+      "norm_label": "combine retrieved documents into a single context string."
+    },
+    {
+      "label": "LCEL Chain Pattern",
+      "file_type": "rationale",
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": "line 86",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "basic_chain_lcel_chain",
+      "community": 0,
+      "norm_label": "lcel chain pattern"
+    },
+    {
+      "label": "OpenRouter API Gateway",
+      "file_type": "rationale",
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": "line 48-53",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "basic_chain_openrouter_gateway",
+      "community": 0,
+      "norm_label": "openrouter api gateway"
+    },
+    {
+      "label": "Invoke/Stream/Batch Execution",
+      "file_type": "rationale",
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": "line 90-155",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "basic_chain_invoke_stream_batch",
+      "community": 10,
+      "norm_label": "invoke/stream/batch execution"
+    },
+    {
+      "label": "Pydantic Output Parser",
+      "file_type": "rationale",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "line 57",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "structured_output_pydantic_parser",
+      "community": 0,
+      "norm_label": "pydantic output parser"
+    },
+    {
+      "label": "ResearchSummary Model",
+      "file_type": "code",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "line 43-50",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "structured_output_researchsummary",
+      "community": 0,
+      "norm_label": "researchsummary model"
+    },
+    {
+      "label": "MovieAnalysis Model",
+      "file_type": "code",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "line 133-139",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "structured_output_movieanalysis",
+      "community": 0,
+      "norm_label": "movieanalysis model"
+    },
+    {
+      "label": "Format Instructions Injection",
+      "file_type": "rationale",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "line 76-79",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "structured_output_format_instructions",
+      "community": 0,
+      "norm_label": "format instructions injection"
+    },
+    {
+      "label": "Conversational Memory Pattern",
+      "file_type": "rationale",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "line 55-63",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "chat_with_memory_conversational_memory",
+      "community": 0,
+      "norm_label": "conversational memory pattern"
+    },
+    {
+      "label": "Session Management",
+      "file_type": "rationale",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "line 46-53",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "chat_with_memory_session_management",
+      "community": 0,
+      "norm_label": "session management"
+    },
+    {
+      "label": "MessagesPlaceholder History",
+      "file_type": "rationale",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "line 40",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "chat_with_memory_messages_placeholder",
+      "community": 0,
+      "norm_label": "messagesplaceholder history"
+    },
+    {
+      "label": "ReAct Agent Pattern",
+      "file_type": "rationale",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "line 84-91",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "research_agent_react_pattern",
+      "community": 0,
+      "norm_label": "react agent pattern"
+    },
+    {
+      "label": "@tool Decorator Pattern",
+      "file_type": "rationale",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "line 36",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "research_agent_tool_decorator",
+      "community": 9,
+      "norm_label": "@tool decorator pattern"
+    },
+    {
+      "label": "DuckDuckGo Web Search Tool",
+      "file_type": "code",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "line 61-77",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "research_agent_web_search",
+      "community": 9,
+      "norm_label": "duckduckgo web search tool"
+    },
+    {
+      "label": "Calculator Tool",
+      "file_type": "code",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "line 36-51",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "research_agent_calculator",
+      "community": 9,
+      "norm_label": "calculator tool"
+    },
+    {
+      "label": "RAG Ingestion Pipeline",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "line 1-10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ingest_rag_pipeline",
+      "community": 3,
+      "norm_label": "rag ingestion pipeline"
+    },
+    {
+      "label": "Recursive Text Splitter",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "line 54-60",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ingest_text_splitter",
+      "community": 3,
+      "norm_label": "recursive text splitter"
+    },
+    {
+      "label": "FAISS Vector Store",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "line 71-77",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ingest_faiss_vector_store",
+      "community": 3,
+      "norm_label": "faiss vector store"
+    },
+    {
+      "label": "HuggingFace Embeddings",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "line 64-66",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ingest_huggingface_embeddings",
+      "community": 3,
+      "norm_label": "huggingface embeddings"
+    },
+    {
+      "label": "RAG Query Chain",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "line 59-74",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "query_rag_chain",
+      "community": 3,
+      "norm_label": "rag query chain"
+    },
+    {
+      "label": "Context Grounding Pattern",
+      "file_type": "rationale",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "line 53-58",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "query_retrieval_grounding",
+      "community": 3,
+      "norm_label": "context grounding pattern"
+    },
+    {
+      "label": "LangChain Learning Project",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_project_overview",
+      "community": 0,
+      "norm_label": "langchain learning project"
+    },
+    {
+      "label": "Artificial Intelligence",
+      "file_type": "document",
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ai_ml_overview_artificial_intelligence",
+      "community": 5,
+      "norm_label": "artificial intelligence"
+    },
+    {
+      "label": "Machine Learning",
+      "file_type": "document",
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ai_ml_overview_machine_learning",
+      "community": 5,
+      "norm_label": "machine learning"
+    },
+    {
+      "label": "Deep Learning",
+      "file_type": "document",
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ai_ml_overview_deep_learning",
+      "community": 5,
+      "norm_label": "deep learning"
+    },
+    {
+      "label": "Transformer Architecture",
+      "file_type": "document",
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ai_ml_overview_transformers",
+      "community": 5,
+      "norm_label": "transformer architecture"
+    },
+    {
+      "label": "Reinforcement Learning",
+      "file_type": "document",
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ai_ml_overview_reinforcement_learning",
+      "community": 5,
+      "norm_label": "reinforcement learning"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "source": "module_1_chains_basic_chain_py",
+      "target": "module_1_chains_basic_chain_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "module_1_chains_basic_chain_rationale_1",
+      "target": "module_1_chains_basic_chain_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "module_2_structured_output_structured_output_py",
+      "target": "module_2_structured_output_structured_output_researchsummary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "source": "module_2_structured_output_structured_output_py",
+      "target": "module_2_structured_output_structured_output_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "module_2_structured_output_structured_output_rationale_1",
+      "target": "module_2_structured_output_structured_output_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "module_2_structured_output_structured_output_researchsummary",
+      "target": "basemodel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "module_2_structured_output_structured_output_rationale_44",
+      "target": "module_2_structured_output_structured_output_researchsummary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "module_3_memory_chat_with_memory_py",
+      "target": "module_3_memory_chat_with_memory_get_session_history",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "module_3_memory_chat_with_memory_py",
+      "target": "module_3_memory_chat_with_memory_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "module_3_memory_chat_with_memory_rationale_1",
+      "target": "module_3_memory_chat_with_memory_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "source": "module_3_memory_chat_with_memory_main",
+      "target": "module_3_memory_chat_with_memory_get_session_history",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "module_4_agents_research_agent_py",
+      "target": "module_4_agents_research_agent_calculator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "source": "module_4_agents_research_agent_py",
+      "target": "module_4_agents_research_agent_word_counter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "module_4_agents_research_agent_py",
+      "target": "module_4_agents_research_agent_web_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "module_4_agents_research_agent_py",
+      "target": "module_4_agents_research_agent_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "module_4_agents_research_agent_rationale_1",
+      "target": "module_4_agents_research_agent_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "module_4_agents_research_agent_rationale_38",
+      "target": "module_4_agents_research_agent_calculator",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "source": "module_4_agents_research_agent_rationale_55",
+      "target": "module_4_agents_research_agent_word_counter",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "source": "module_4_agents_research_agent_rationale_63",
+      "target": "module_4_agents_research_agent_web_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "module_5_rag_ingest_py",
+      "target": "module_5_rag_ingest_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "module_5_rag_ingest_rationale_1",
+      "target": "module_5_rag_ingest_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "module_5_rag_query_py",
+      "target": "module_5_rag_query_format_docs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "module_5_rag_query_py",
+      "target": "module_5_rag_query_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "module_5_rag_query_rationale_1",
+      "target": "module_5_rag_query_py",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "module_5_rag/query.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "module_5_rag_query_rationale_28",
+      "target": "module_5_rag_query_format_docs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "basic_chain_lcel_chain",
+      "target": "structured_output_pydantic_parser"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "module_1_chains/basic_chain.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "basic_chain_lcel_chain",
+      "target": "chat_with_memory_conversational_memory"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "module_5_rag/query.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "basic_chain_lcel_chain",
+      "target": "query_rag_chain"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_project_overview",
+      "target": "basic_chain_lcel_chain"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "basic_chain_openrouter_gateway",
+      "target": "structured_output_pydantic_parser"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "basic_chain_openrouter_gateway",
+      "target": "chat_with_memory_conversational_memory"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "basic_chain_openrouter_gateway",
+      "target": "research_agent_react_pattern"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "module_5_rag/query.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "basic_chain_openrouter_gateway",
+      "target": "query_rag_chain"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_ml_overview_transformers",
+      "target": "basic_chain_openrouter_gateway"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "line 57",
+      "weight": 1.0,
+      "source": "structured_output_researchsummary",
+      "target": "structured_output_pydantic_parser"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "line 141",
+      "weight": 1.0,
+      "source": "structured_output_movieanalysis",
+      "target": "structured_output_pydantic_parser"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_2_structured_output/structured_output.py",
+      "source_location": "line 62",
+      "weight": 1.0,
+      "source": "structured_output_format_instructions",
+      "target": "structured_output_pydantic_parser"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_project_overview",
+      "target": "structured_output_pydantic_parser"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "line 40",
+      "weight": 1.0,
+      "source": "chat_with_memory_messages_placeholder",
+      "target": "chat_with_memory_conversational_memory"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_3_memory/chat_with_memory.py",
+      "source_location": "line 50",
+      "weight": 1.0,
+      "source": "chat_with_memory_session_management",
+      "target": "chat_with_memory_conversational_memory"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_project_overview",
+      "target": "chat_with_memory_conversational_memory"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "line 84",
+      "weight": 1.0,
+      "source": "research_agent_react_pattern",
+      "target": "research_agent_tool_decorator"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_project_overview",
+      "target": "research_agent_react_pattern"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "line 36",
+      "weight": 1.0,
+      "source": "research_agent_tool_decorator",
+      "target": "research_agent_calculator"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_4_agents/research_agent.py",
+      "source_location": "line 61",
+      "weight": 1.0,
+      "source": "research_agent_tool_decorator",
+      "target": "research_agent_web_search"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ingest_rag_pipeline",
+      "target": "ingest_text_splitter"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ingest_rag_pipeline",
+      "target": "ingest_faiss_vector_store"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ingest_rag_pipeline",
+      "target": "ingest_huggingface_embeddings"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "readme_project_overview",
+      "target": "ingest_rag_pipeline"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "module_5_rag/ingest.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ingest_rag_pipeline",
+      "target": "ai_ml_overview_artificial_intelligence"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/query.py",
+      "source_location": "line 46-48",
+      "weight": 1.0,
+      "source": "ingest_faiss_vector_store",
+      "target": "query_rag_chain"
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/query.py",
+      "source_location": "line 45",
+      "weight": 1.0,
+      "source": "ingest_huggingface_embeddings",
+      "target": "query_rag_chain"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/query.py",
+      "source_location": "line 53-58",
+      "weight": 1.0,
+      "source": "query_rag_chain",
+      "target": "query_retrieval_grounding"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_ml_overview_artificial_intelligence",
+      "target": "ai_ml_overview_machine_learning"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_ml_overview_machine_learning",
+      "target": "ai_ml_overview_deep_learning"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_ml_overview_machine_learning",
+      "target": "ai_ml_overview_reinforcement_learning"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/sample_docs/ai_ml_overview.txt",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "ai_ml_overview_deep_learning",
+      "target": "ai_ml_overview_transformers"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "langchain_learning_modules",
+      "label": "LangChain Progressive Learning Modules",
+      "nodes": [
+        "basic_chain_lcel_chain",
+        "structured_output_pydantic_parser",
+        "chat_with_memory_conversational_memory",
+        "research_agent_react_pattern",
+        "ingest_rag_pipeline",
+        "query_rag_chain"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 0.95,
+      "source_file": "README.md"
+    },
+    {
+      "id": "openrouter_shared_config",
+      "label": "Shared OpenRouter Configuration",
+      "nodes": [
+        "basic_chain_openrouter_gateway",
+        "structured_output_pydantic_parser",
+        "chat_with_memory_conversational_memory",
+        "research_agent_react_pattern",
+        "query_rag_chain"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_1_chains/basic_chain.py"
+    },
+    {
+      "id": "rag_document_pipeline",
+      "label": "RAG Document Processing Pipeline",
+      "nodes": [
+        "ingest_rag_pipeline",
+        "ingest_text_splitter",
+        "ingest_huggingface_embeddings",
+        "ingest_faiss_vector_store",
+        "query_rag_chain",
+        "query_retrieval_grounding"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "module_5_rag/ingest.py"
+    }
+  ]
+}

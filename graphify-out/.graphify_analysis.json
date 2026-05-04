@@ -1,0 +1,178 @@
+{
+  "communities": {
+    "0": [
+      "config_py",
+      "module_5_rag_query_format_docs",
+      "module_5_rag_query_main",
+      "module_5_rag_query_py",
+      "module_5_rag_query_rationale_1",
+      "module_5_rag_query_rationale_25",
+      "practice_config_get_llm",
+      "practice_config_rationale_1",
+      "practice_config_rationale_39"
+    ],
+    "1": [
+      "module_4_agents_research_agent_calculator",
+      "module_4_agents_research_agent_main",
+      "module_4_agents_research_agent_py",
+      "module_4_agents_research_agent_rationale_1",
+      "module_4_agents_research_agent_rationale_30",
+      "module_4_agents_research_agent_rationale_47",
+      "module_4_agents_research_agent_rationale_55",
+      "module_4_agents_research_agent_web_search",
+      "module_4_agents_research_agent_word_counter"
+    ],
+    "2": [
+      "basemodel",
+      "module_2_structured_output_structured_output_main",
+      "module_2_structured_output_structured_output_py",
+      "module_2_structured_output_structured_output_rationale_1",
+      "module_2_structured_output_structured_output_rationale_39",
+      "module_2_structured_output_structured_output_researchsummary"
+    ],
+    "3": [
+      "ingest_faiss_vector_store",
+      "ingest_huggingface_embeddings",
+      "ingest_rag_pipeline",
+      "ingest_text_splitter",
+      "readme_project_overview"
+    ],
+    "4": [
+      "ai_ml_overview_artificial_intelligence",
+      "ai_ml_overview_deep_learning",
+      "ai_ml_overview_machine_learning",
+      "ai_ml_overview_reinforcement_learning",
+      "ai_ml_overview_transformers"
+    ],
+    "5": [
+      "module_3_memory_chat_with_memory_get_session_history",
+      "module_3_memory_chat_with_memory_main",
+      "module_3_memory_chat_with_memory_py",
+      "module_3_memory_chat_with_memory_rationale_1"
+    ],
+    "6": [
+      "module_1_chains_basic_chain_main",
+      "module_1_chains_basic_chain_py",
+      "module_1_chains_basic_chain_rationale_1"
+    ],
+    "7": [
+      "module_5_rag_ingest_main",
+      "module_5_rag_ingest_py",
+      "module_5_rag_ingest_rationale_1"
+    ]
+  },
+  "cohesion": {
+    "0": 0.22,
+    "1": 0.22,
+    "2": 0.33,
+    "3": 0.4,
+    "4": 0.4,
+    "5": 0.67,
+    "6": 0.67,
+    "7": 0.67
+  },
+  "gods": [
+    {
+      "id": "ingest_rag_pipeline",
+      "label": "RAG Ingestion Pipeline",
+      "degree": 5
+    },
+    {
+      "id": "practice_config_get_llm",
+      "label": "get_llm()",
+      "degree": 3
+    },
+    {
+      "id": "module_2_structured_output_structured_output_researchsummary",
+      "label": "ResearchSummary",
+      "degree": 3
+    },
+    {
+      "id": "ai_ml_overview_machine_learning",
+      "label": "Machine Learning",
+      "degree": 3
+    },
+    {
+      "id": "module_3_memory_chat_with_memory_get_session_history",
+      "label": "get_session_history()",
+      "degree": 2
+    },
+    {
+      "id": "module_3_memory_chat_with_memory_main",
+      "label": "main()",
+      "degree": 2
+    },
+    {
+      "id": "module_4_agents_research_agent_calculator",
+      "label": "calculator()",
+      "degree": 2
+    },
+    {
+      "id": "module_4_agents_research_agent_word_counter",
+      "label": "word_counter()",
+      "degree": 2
+    },
+    {
+      "id": "module_4_agents_research_agent_web_search",
+      "label": "web_search()",
+      "degree": 2
+    },
+    {
+      "id": "module_5_rag_query_format_docs",
+      "label": "format_docs()",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "RAG Ingestion Pipeline",
+      "target": "Artificial Intelligence",
+      "source_files": [
+        "module_5_rag/ingest.py",
+        "module_5_rag/sample_docs/ai_ml_overview.txt"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; crosses file types (code \u2194 doc); bridges separate communities; peripheral node `Artificial Intelligence` unexpectedly reaches hub `RAG Ingestion Pipeline`"
+    },
+    {
+      "source": "LangChain Learning Project",
+      "target": "RAG Ingestion Pipeline",
+      "source_files": [
+        "README.md",
+        "module_5_rag/ingest.py"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "crosses file types (code \u2194 doc); connects across different repos/directories; peripheral node `LangChain Learning Project` unexpectedly reaches hub `RAG Ingestion Pipeline`"
+    },
+    {
+      "source": "main()",
+      "target": "get_llm()",
+      "source_files": [
+        "module_5_rag/query.py",
+        "config.py"
+      ],
+      "confidence": "INFERRED",
+      "relation": "calls",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `RAG Ingestion Pipeline` connect `RAG Pipeline Architecture` to `RAG Query System`?",
+      "why": "High betweenness centrality (0.029) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `Artificial Intelligence` connect `RAG Query System` to `RAG Pipeline Architecture`?",
+      "why": "High betweenness centrality (0.022) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  SHARED CONFI`, `Get a configured LLM instance. All modules use this.`, `\u2554\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2557 \u2551  MODULE 1: Ch` to the rest of the system?",
+      "why": "19 weakly-connected nodes found - possible documentation gaps or missing edges."
+    }
+  ]
+}
