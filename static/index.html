@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Assistant</title>
+    <meta name="description" content="AI-powered research assistant with chat, search, RAG, and analysis capabilities">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: rgba(255,255,255,0.03);
+            --bg-glass: rgba(255,255,255,0.05);
+            --border: rgba(255,255,255,0.08);
+            --border-active: rgba(139,92,246,0.5);
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --accent: #8b5cf6;
+            --accent-glow: rgba(139,92,246,0.15);
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-amber: #f59e0b;
+            --accent-rose: #f43f5e;
+            --user-bg: rgba(139,92,246,0.12);
+            --ai-bg: rgba(255,255,255,0.02);
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ── Layout ─────────────────────────────────────── */
+        #app {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ── Header ─────────────────────────────────────── */
+        header {
+            padding: 20px 24px 0;
+            flex-shrink: 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .logo-icon {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .logo h1 {
+            font-size: 18px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #e4e4e7, #a1a1aa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* ── Mode Tabs ──────────────────────────────────── */
+        .mode-tabs {
+            display: flex;
+            gap: 6px;
+            padding: 4px;
+            background: var(--bg-card);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            margin-bottom: 16px;
+        }
+
+        .mode-tab {
+            flex: 1;
+            padding: 10px 8px;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .mode-tab:hover { color: var(--text-primary); background: var(--bg-glass); }
+        .mode-tab.active {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 2px 12px var(--accent-glow);
+        }
+
+        .mode-tab .icon { font-size: 16px; }
+
+        .mode-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            padding: 0 4px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ── Messages ───────────────────────────────────── */
+        #messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            scroll-behavior: smooth;
+        }
+
+        #messages::-webkit-scrollbar { width: 4px; }
+        #messages::-webkit-scrollbar-track { background: transparent; }
+        #messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+        .message {
+            display: flex;
+            gap: 12px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message-avatar {
+            width: 32px; height: 32px;
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+        }
+
+        .message.ai .message-avatar {
+            background: linear-gradient(135deg, var(--accent-blue), #2563eb);
+        }
+
+        .message-content {
+            flex: 1;
+            padding: 14px 18px;
+            border-radius: var(--radius);
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: calc(100% - 44px);
+        }
+
+        .message.user .message-content {
+            background: var(--user-bg);
+            border: 1px solid rgba(139,92,246,0.15);
+        }
+
+        .message.ai .message-content {
+            background: var(--ai-bg);
+            border: 1px solid var(--border);
+        }
+
+        .message-content p { margin-bottom: 8px; }
+        .message-content p:last-child { margin-bottom: 0; }
+        .message-content strong { color: var(--accent); font-weight: 600; }
+        .message-content code {
+            background: rgba(139,92,246,0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: 'Cascadia Code', 'Fira Code', monospace;
+        }
+        .message-content pre {
+            background: rgba(0,0,0,0.4);
+            padding: 12px 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+        .message-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        /* ── Tool Cards ─────────────────────────────────── */
+        .tool-card {
+            margin: 8px 0;
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid;
+            font-size: 12px;
+        }
+
+        .tool-call {
+            background: rgba(59,130,246,0.08);
+            border-color: rgba(59,130,246,0.2);
+        }
+        .tool-call .tool-label { color: var(--accent-blue); }
+
+        .tool-result {
+            background: rgba(16,185,129,0.06);
+            border-color: rgba(16,185,129,0.2);
+        }
+        .tool-result .tool-label { color: var(--accent-green); }
+
+        .tool-label {
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        /* ── Sources ────────────────────────────────────── */
+        .sources-card {
+            margin: 8px 0;
+            padding: 10px 14px;
+            background: rgba(245,158,11,0.06);
+            border: 1px solid rgba(245,158,11,0.2);
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+        }
+        .sources-card .tool-label { color: var(--accent-amber); }
+        .sources-card ul { padding-left: 16px; margin-top: 4px; }
+        .sources-card li { color: var(--text-secondary); margin: 2px 0; }
+
+        /* ── Analysis Card ──────────────────────────────── */
+        .analysis-card {
+            margin: 8px 0;
+            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .analysis-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--accent);
+        }
+        .analysis-card .summary { color: var(--text-secondary); margin-bottom: 12px; }
+        .analysis-card .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .badge.beginner { background: rgba(16,185,129,0.15); color: var(--accent-green); }
+        .badge.intermediate { background: rgba(245,158,11,0.15); color: var(--accent-amber); }
+        .badge.advanced { background: rgba(244,63,94,0.15); color: var(--accent-rose); }
+        .analysis-card .points { padding-left: 16px; margin-bottom: 12px; }
+        .analysis-card .points li {
+            color: var(--text-secondary);
+            margin: 4px 0;
+            line-height: 1.5;
+        }
+        .analysis-card .related {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .related-tag {
+            padding: 4px 10px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        /* ── Typing Indicator ───────────────────────────── */
+        .typing {
+            display: flex;
+            gap: 4px;
+            padding: 8px 0;
+        }
+        .typing span {
+            width: 6px; height: 6px;
+            background: var(--text-muted);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite both;
+        }
+        .typing span:nth-child(2) { animation-delay: 0.16s; }
+        .typing span:nth-child(3) { animation-delay: 0.32s; }
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* ── Welcome ────────────────────────────────────── */
+        .welcome {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+        .welcome-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .welcome h2 {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .welcome p { font-size: 13px; line-height: 1.6; }
+        .welcome .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .suggestion {
+            padding: 8px 14px;
+            background: var(--bg-glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .suggestion:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        /* ── Input ──────────────────────────────────────── */
+        .input-area {
+            padding: 16px 24px 24px;
+            flex-shrink: 0;
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 8px;
+            padding: 8px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: border-color 0.25s;
+        }
+
+        .input-wrapper:focus-within {
+            border-color: var(--border-active);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        #user-input {
+            flex: 1;
+            background: none;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 14px;
+            padding: 8px 12px;
+            resize: none;
+            height: 40px;
+            max-height: 120px;
+        }
+
+        #user-input::placeholder { color: var(--text-muted); }
+
+        #send-btn {
+            width: 40px; height: 40px;
+            border: none;
+            background: var(--accent);
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+
+        #send-btn:hover { background: #7c3aed; transform: scale(1.05); }
+        #send-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+        .input-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            padding: 0 4px;
+        }
+
+        .input-footer span {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        #clear-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 11px;
+            cursor: pointer;
+            font-family: inherit;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transition: color 0.2s;
+        }
+        #clear-btn:hover { color: var(--accent-rose); }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">🧠</div>
+                <div>
+                    <h1>AI Research Assistant</h1>
+                    <p>Powered by LangChain + OpenRouter</p>
+                </div>
+            </div>
+
+            <div class="mode-tabs" id="mode-tabs">
+                <button class="mode-tab active" data-mode="chat">
+                    <span class="icon">💬</span> Chat
+                </button>
+                <button class="mode-tab" data-mode="research">
+                    <span class="icon">🔍</span> Research
+                </button>
+                <button class="mode-tab" data-mode="rag">
+                    <span class="icon">📚</span> RAG
+                </button>
+                <button class="mode-tab" data-mode="analyze">
+                    <span class="icon">📊</span> Analyze
+                </button>
+            </div>
+
+            <div class="mode-desc" id="mode-desc">
+                Conversational chat with memory — I remember our conversation.
+            </div>
+        </header>
+
+        <div id="messages">
+            <div class="welcome" id="welcome">
+                <span class="welcome-icon">🧠</span>
+                <h2>What can I help you with?</h2>
+                <p>Choose a mode above and ask anything.</p>
+                <div class="suggestions" id="suggestions"></div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-wrapper">
+                <textarea id="user-input" placeholder="Type your message..." rows="1"></textarea>
+                <button id="send-btn" title="Send">➤</button>
+            </div>
+            <div class="input-footer">
+                <span id="model-label">gemini-2.0-flash</span>
+                <button id="clear-btn">Clear chat</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (() => {
+        // ── State ──────────────────────────────────────
+        let currentMode = 'chat';
+        let isStreaming = false;
+        let sessionId = 'session_' + Date.now();
+
+        const modeDescriptions = {
+            chat: 'Conversational chat with memory — I remember our conversation.',
+            research: 'Research agent — I can search the web, calculate, and analyze text.',
+            rag: 'Document Q&A — I answer from your uploaded documents (RAG).',
+            analyze: 'Structured analysis — I return organized data about any topic.'
+        };
+
+        const modeSuggestions = {
+            chat: ['Tell me about yourself', 'Explain quantum computing', 'Help me plan a project'],
+            research: ['Search for latest AI news', 'What is 2^32?', 'Count words in: Hello world!'],
+            rag: ['What are the types of AI?', 'Explain deep learning', 'What is reinforcement learning?'],
+            analyze: ['Blockchain Technology', 'Machine Learning', 'Climate Change']
+        };
+
+        // ── Elements ───────────────────────────────────
+        const messagesEl = document.getElementById('messages');
+        const inputEl = document.getElementById('user-input');
+        const sendBtn = document.getElementById('send-btn');
+        const welcomeEl = document.getElementById('welcome');
+        const modeDescEl = document.getElementById('mode-desc');
+        const suggestionsEl = document.getElementById('suggestions');
+
+        // ── Mode Switching ─────────────────────────────
+        document.getElementById('mode-tabs').addEventListener('click', e => {
+            const tab = e.target.closest('.mode-tab');
+            if (!tab || isStreaming) return;
+            document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentMode = tab.dataset.mode;
+            modeDescEl.textContent = modeDescriptions[currentMode];
+            updateSuggestions();
+            inputEl.focus();
+        });
+
+        function updateSuggestions() {
+            const suggestions = modeSuggestions[currentMode] || [];
+            suggestionsEl.innerHTML = suggestions.map(s =>
+                `<button class="suggestion" onclick="useSuggestion('${s.replace(/'/g, "\\'")}')">${s}</button>`
+            ).join('');
+        }
+
+        window.useSuggestion = function(text) {
+            inputEl.value = text;
+            sendMessage();
+        };
+
+        updateSuggestions();
+
+        // ── Auto-resize textarea ───────────────────────
+        inputEl.addEventListener('input', () => {
+            inputEl.style.height = '40px';
+            inputEl.style.height = Math.min(inputEl.scrollHeight, 120) + 'px';
+        });
+
+        // ── Send on Enter ──────────────────────────────
+        inputEl.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        sendBtn.addEventListener('click', sendMessage);
+
+        // ── Clear Chat ─────────────────────────────────
+        document.getElementById('clear-btn').addEventListener('click', async () => {
+            messagesEl.innerHTML = '';
+            welcomeEl && messagesEl.appendChild(createWelcome());
+            await fetch(`/api/sessions/${sessionId}`, { method: 'DELETE' });
+            sessionId = 'session_' + Date.now();
+        });
+
+        function createWelcome() {
+            const div = document.createElement('div');
+            div.className = 'welcome';
+            div.id = 'welcome';
+            div.innerHTML = `
+                <span class="welcome-icon">🧠</span>
+                <h2>What can I help you with?</h2>
+                <p>Choose a mode above and ask anything.</p>
+                <div class="suggestions" id="suggestions"></div>
+            `;
+            return div;
+        }
+
+        // ── Send Message ───────────────────────────────
+        async function sendMessage() {
+            const text = inputEl.value.trim();
+            if (!text || isStreaming) return;
+
+            // Hide welcome
+            const welcome = document.getElementById('welcome');
+            if (welcome) welcome.remove();
+
+            // Add user message
+            addMessage('user', text);
+            inputEl.value = '';
+            inputEl.style.height = '40px';
+
+            // Add AI message placeholder
+            const aiMsg = addMessage('ai', '');
+            const contentEl = aiMsg.querySelector('.message-content');
+            contentEl.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+
+            isStreaming = true;
+            sendBtn.disabled = true;
+            let fullText = '';
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        message: text,
+                        mode: currentMode,
+                        session_id: sessionId
+                    })
+                });
+
+                const reader = response.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n');
+                    buffer = lines.pop();
+
+                    for (const line of lines) {
+                        if (!line.startsWith('data: ')) continue;
+                        try {
+                            const data = JSON.parse(line.slice(6));
+                            handleEvent(data, contentEl, aiMsg);
+                            if (data.type === 'token') {
+                                fullText += data.content;
+                                renderMarkdown(contentEl, fullText);
+                            }
+                        } catch (e) { /* skip parse errors */ }
+                    }
+                }
+            } catch (err) {
+                contentEl.innerHTML = `<p style="color: var(--accent-rose)">Error: ${err.message}</p>`;
+            }
+
+            isStreaming = false;
+            sendBtn.disabled = false;
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+            inputEl.focus();
+        }
+
+        // ── Handle SSE Events ──────────────────────────
+        function handleEvent(data, contentEl, msgEl) {
+            if (data.type === 'tool_call') {
+                const card = document.createElement('div');
+                card.className = 'tool-card tool-call';
+                card.innerHTML = `
+                    <div class="tool-label">🔧 Tool: ${data.name}</div>
+                    <div>${JSON.stringify(data.args)}</div>
+                `;
+                contentEl.insertBefore(card, contentEl.firstChild);
+            } else if (data.type === 'tool_result') {
+                const card = document.createElement('div');
+                card.className = 'tool-card tool-result';
+                card.innerHTML = `
+                    <div class="tool-label">📊 Result</div>
+                    <div>${escapeHtml(data.content)}</div>
+                `;
+                contentEl.insertBefore(card, contentEl.querySelector('.typing') || null);
+            } else if (data.type === 'sources') {
+                const card = document.createElement('div');
+                card.className = 'sources-card';
+                card.innerHTML = `
+                    <div class="tool-label">📚 Retrieved ${data.content.length} sources</div>
+                    <ul>${data.content.map(s => `<li>${escapeHtml(s)}</li>`).join('')}</ul>
+                `;
+                contentEl.innerHTML = '';
+                contentEl.appendChild(card);
+            } else if (data.type === 'analysis') {
+                contentEl.innerHTML = '';
+                const a = data.content;
+                const card = document.createElement('div');
+                card.className = 'analysis-card';
+                card.innerHTML = `
+                    <h3>${escapeHtml(a.title)}</h3>
+                    <div class="badge ${a.difficulty_level}">${a.difficulty_level}</div>
+                    <p class="summary">${escapeHtml(a.summary)}</p>
+                    <div class="tool-label" style="color:var(--accent);margin-bottom:6px">Key Points</div>
+                    <ol class="points">${a.key_points.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ol>
+                    <div class="tool-label" style="color:var(--text-muted);margin-bottom:6px">Related Topics</div>
+                    <div class="related">${a.related_topics.map(t => `<span class="related-tag">${escapeHtml(t)}</span>`).join('')}</div>
+                `;
+                contentEl.appendChild(card);
+            } else if (data.type === 'error') {
+                contentEl.innerHTML = `<p style="color: var(--accent-rose)">❌ ${escapeHtml(data.content)}</p>`;
+            }
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+        }
+
+        // ── Add Message Bubble ─────────────────────────
+        function addMessage(role, text) {
+            const msg = document.createElement('div');
+            msg.className = `message ${role}`;
+            msg.innerHTML = `
+                <div class="message-avatar">${role === 'user' ? '👤' : '🤖'}</div>
+                <div class="message-content">${role === 'user' ? escapeHtml(text) : text}</div>
+            `;
+            messagesEl.appendChild(msg);
+            messagesEl.scrollTop = messagesEl.scrollHeight;
+            return msg;
+        }
+
+        // ── Simple Markdown Rendering ──────────────────
+        function renderMarkdown(el, text) {
+            // Remove typing indicator first
+            const typing = el.querySelector('.typing');
+            const toolCards = el.querySelectorAll('.tool-card, .sources-card');
+
+            let html = escapeHtml(text)
+                .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>')
+                .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+                .replace(/^\s*[-•]\s+(.+)/gm, '<li>$1</li>')
+                .replace(/^\s*\d+\.\s+(.+)/gm, '<li>$1</li>')
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>');
+
+            html = '<p>' + html + '</p>';
+            html = html.replace(/<p><\/p>/g, '');
+
+            // Preserve tool cards at the top
+            let prefix = '';
+            toolCards.forEach(card => prefix += card.outerHTML);
+
+            el.innerHTML = prefix + html;
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+    })();
+    </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  SHARED CONFIG — Change the model here, all modules update  v║
+║  SHARED CONFIG — Change the model here, all modules update   ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
 ║  Want to switch models? Just change MODEL_NAME below:        ║
@@ -44,7 +44,3 @@ def get_llm(temperature=None):
         openai_api_base=API_BASE,
         openai_api_key=API_KEY,
     )
-
-
-def hello_world():
-    print("Hello, World!")
