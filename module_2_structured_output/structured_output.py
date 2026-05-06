@@ -1,18 +1,18 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  MODULE 2: Structured Output & Output Parsers               ║
+║  MODULE 2: Structured Output & Output Parsers                ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
 ║  CONCEPTS YOU'LL LEARN:                                      ║
 ║  1. Pydantic models        — define the shape of your data   ║
 ║  2. PydanticOutputParser   — force LLM to return typed data  ║
 ║  3. Format instructions    — auto-generated parsing rules    ║
-║  4. .partial()             — inject static prompt variables   ║
+║  4. .partial()             — inject static prompt variables  ║
 ║  5. Why structured output matters for real apps              ║
 ║                                                              ║
 ║  THE PROBLEM:                                                ║
 ║  LLMs return raw text. But your code needs structured data   ║
-║  (JSON, objects, typed fields). Output parsers bridge this    ║
+║  (JSON, objects, typed fields). Output parsers bridge this   ║
 ║  gap by telling the LLM HOW to format its response, then     ║
 ║  parsing that response into a Python object.                 ║
 ║                                                              ║

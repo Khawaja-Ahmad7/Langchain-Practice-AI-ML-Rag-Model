@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  MODULE 5b: RAG — Question Answering                        ║
+║  MODULE 5b: RAG — Question Answering                         ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  Loads the vector store, builds a retrieval chain, and       ║
 ║  answers questions grounded in YOUR documents.               ║

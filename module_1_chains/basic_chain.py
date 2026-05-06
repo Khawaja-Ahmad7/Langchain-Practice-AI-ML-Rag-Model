@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  MODULE 1: Chains & LCEL (LangChain Expression Language)    ║
+║  MODULE 1: Chains & LCEL (LangChain Expression Language)     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
 ║  CONCEPTS YOU'LL LEARN:                                      ║

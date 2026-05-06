@@ -1,11 +1,11 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  MODULE 4: Tools & Agents                                   ║
+║  MODULE 4: Tools & Agents                                    ║
 ╠══════════════════════════════════════════════════════════════╣
-║  A chain is fixed: A → B → C. An agent is DYNAMIC: it       ║
+║  A chain is fixed: A → B → C. An agent is DYNAMIC: it        ║
 ║  decides which tools to use based on the question.           ║
 ║                                                              ║
-║  ReAct pattern: THINK → ACT → OBSERVE → RESPOND             ║
+║  ReAct pattern: THINK → ACT → OBSERVE → RESPOND              ║
 ╚══════════════════════════════════════════════════════════════╝
 """
 

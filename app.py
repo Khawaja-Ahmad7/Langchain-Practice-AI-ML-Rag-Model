@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  AI Research Assistant — FastAPI Backend                      ║
+║  AI Research Assistant — FastAPI Backend                     ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  Serves the frontend and provides API endpoints for all      ║
 ║  LangChain modes: Chat, Research, RAG, Analyze.              ║
@@ -125,9 +125,9 @@ agent_tools = [calculator, web_search, word_counter]
 research_agent = create_react_agent(
     get_llm(temperature=0),
     agent_tools,
-    prompt="You are a helpful research assistant with access to tools. "
-           "Use the appropriate tool for each task. "
-           "For math, use calculator. For current info, use web_search. "
+    prompt="You are a helpful research assistant with access to tools."
+           "Use the appropriate tool for each task."
+           "For math, use calculator. For current info, use web_search."
            "Always provide clear explanations with your results. Use markdown."
 )
 

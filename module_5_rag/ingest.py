@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  MODULE 5a: RAG — Document Ingestion                        ║
+║  MODULE 5a: RAG — Document Ingestion                         ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  RAG = Retrieval-Augmented Generation                        ║
 ║  1. Load documents  2. Split into chunks  3. Create          ║

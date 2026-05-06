@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════╗
-║  MODULE 3: Conversational Memory                            ║
+║  MODULE 3: Conversational Memory                             ║
 ╠══════════════════════════════════════════════════════════════╣
 ║  LLMs are STATELESS. Memory solves this by storing previous  ║
 ║  messages and replaying them with each new request.          ║
