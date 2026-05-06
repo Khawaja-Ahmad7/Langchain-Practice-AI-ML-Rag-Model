@@ -44,3 +44,7 @@ def get_llm(temperature=None):
         openai_api_base=API_BASE,
         openai_api_key=API_KEY,
     )
+
+
+def hello_world():
+    print("Hello, World!")
